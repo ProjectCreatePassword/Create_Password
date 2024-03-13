@@ -1,6 +1,8 @@
 from tkinter import *
 import string
 import random
+from hashlib import sha512
+import json
 
 window = Tk()
 
@@ -41,8 +43,9 @@ def ispasswordtrue():
 
 	if checkpassword():
 		motdepasse = entrer_mdp.get()
-		return motdepasse
 		entrer_mdp.config(fg="green")
+		HashPassword(motdepasse)
+		entrer_mdp.delete()
 	else:
 		message = "Mot de passe incorrect"
 		entrer_mdp.config(fg="red")
