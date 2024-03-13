@@ -117,11 +117,36 @@ def show_user(user):
         print("Utilisateur non trouvé.")
 
 
-
 # Appel de la fonction pour ajouter un utilisateur
-adduser()
+# adduser()
 
 
 
 # Appel de la fonction pour afficher les informations de l'utilisateur 
-show_user("burton")
+# show_user("burton")
+
+
+def conversion():
+    adduser()
+    str(username)
+    str(mdp)
+    str(userid)
+    return (f"{username}, {mdp}, {userid}")
+
+#----------------------------------------------------------------
+def enregistrer_contenu_dans_fichier(nom_fichier):
+    # Appel de la fonction pour obtenir le contenu
+    contenu = conversion()
+
+    # Ouverture du fichier en mode écriture
+    with open(nom_fichier, "a") as fichier:
+        # Écriture du contenu dans le fichier
+        fichier.write(contenu)
+
+    print("Le contenu a été enregistré dans le fichier", nom_fichier)
+
+# Appel de la fonction pour enregistrer le contenu dans un fichier texte
+enregistrer_contenu_dans_fichier("motsdepasse.txt")
+
+
+

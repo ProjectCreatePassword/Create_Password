@@ -27,11 +27,16 @@ def checkpassword(motdepasse):
 			if char in spécial:
 				spécial_présent = True
 
-		return maj_présente and min_présente and chiffre_présent and spécial_présent
-	return False
+		retour = maj_présente and min_présente and chiffre_présent and spécial_présent
+		return retour
+	retour = False
+	return retour
 
 
-print(checkpassword("1_zezfuC"))
+
+print(checkpassword("BurtoN_TylL"))
+
+
 
 
 			
