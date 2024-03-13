@@ -130,12 +130,12 @@ label_mdp.grid(row=3, column=0, sticky="ew")
 
 #-------------------------------------------------------
 #---------Bouton soumettre
-soumettre = Button(form, text="Envoyer", width=30, command=ispasswordtrue)
+soumettre = Button(form, text="Envoyer", width=30, bg="#631CD0", fg="white", command=ispasswordtrue)
 soumettre.grid(column=1, row=4)
 
 #-------------------------------------------------------
 #---------Bouton générer
-generate = Button(form, text="Générer un mot de passe", command=genpassword)
+generate = Button(form, text="Générer un mot de passe", bg="#631CD0", fg="white", command=genpassword)
 
 #---------Afficher la fenêtre
 window.mainloop()
