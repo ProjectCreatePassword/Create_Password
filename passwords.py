@@ -143,6 +143,12 @@ erreur = Label(window, font=("Courrier", 10), bg="#181A1B", fg="red", justify="l
 entrer_mdp = customtkinter.CTkEntry(master=contenu, show="*", bg_color="#181A1B", fg_color="#4c4f4c", corner_radius=8, width=200, placeholder_text="Entrez un mot de passe")
 entrer_mdp.grid(pady=10, row=1) 
 
+# Bouton pour rendre le mdp visible ou masqué
+voir_mdp = BooleanVar()
+voir_mdp.set(False)  # Mdp masqué par défaut
+show_button = Checkbutton(contenu, text="Cliquez pour afficher le mot de passe", variable=voir_mdp, command=toggle_visibility, bg="#C8ADC0")
+show_button.grid()
+
 #--------------------------------------------
 #------------Bouton générer mdp
 generate = customtkinter.CTkButton(master=contenu, bg_color="#181A1B", fg_color="#631CD0", corner_radius=8, width=200 , text="Générer un mot de passe", command=genpassword)
