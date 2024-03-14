@@ -50,7 +50,7 @@ Frame2.pack(side= LEFT, fill= Y, padx=0, pady=0)
 liste = Listbox(Frame2)
 liste.insert(1, "- Au moins 8 caractères.")
 liste.insert(2, "- Au moins 1 lettre majuscule.")
-liste.insert(3, "- Au  moins 1 lettre minuscule.")
+liste.insert(3, "- Au moins 1 lettre minuscule.")
 liste.insert(4, "- Au moins 1 chiffre.")
 liste.insert(5, "- Au moins 1 caractère spécial.")
 
