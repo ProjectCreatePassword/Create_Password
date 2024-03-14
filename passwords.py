@@ -140,7 +140,7 @@ erreur = Label(window, font=("Courrier", 10), bg="#181A1B", fg="red", justify="l
 
 #--------------------------------------------
 #------------Input mdp
-entrer_mdp = customtkinter.CTkEntry(master=contenu, bg_color="#181A1B", fg_color="#4c4f4c", corner_radius=8, width=200, placeholder_text="Entrez un mot de passe")
+entrer_mdp = customtkinter.CTkEntry(master=contenu, show="*", bg_color="#181A1B", fg_color="#4c4f4c", corner_radius=8, width=200, placeholder_text="Entrez un mot de passe")
 entrer_mdp.grid(pady=10, row=1) 
 
 #--------------------------------------------
