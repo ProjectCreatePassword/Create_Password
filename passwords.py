@@ -8,7 +8,6 @@ from hashlib import sha512
 import json
 import os
 
-
 message_erreur = """Votre mot de passe doit contenir
 au moins:
 - 8 caractères
@@ -84,6 +83,7 @@ def ispasswordtrue():
 
 	if checkpassword():
 		motdepasse = entrer_mdp.get()
+		validation.grid(column=1, row=1)
 		validation.configure(text=message_correct, fg="green")
 		HashPassword(motdepasse)
 		entrer_mdp.delete(0, 100)
@@ -124,7 +124,7 @@ def HashPassword(motdepasse):
 			list_mdp_cryptés = json.load(file)
 		if motdepasse_sign in list_mdp_cryptés:
 			validation.grid(column=1, row=1)
-			validation.configure(text=message_deja_existant)
+			validation.configure(text=message_deja_existant, fg="red")
 		else:
 			#On ajoute le nouveau mot de passe crypté à la liste
 			list_mdp_cryptés.append(motdepasse_sign)
@@ -137,13 +137,16 @@ def HashPassword(motdepasse):
 
 def ShowPasswords():
 	fichier = "passwords.json"
-	with open(fichier, "r") as file:
-		mdpcryptés.delete(1.0, "end")
-		mdp = json.load(file)
-		for element in mdp:
+	if mdpcryptés.winfo_viewable():
+		mdpcryptés.grid_forget()
+	else:
+		with open(fichier, "r") as file:
+			mdpcryptés.delete(1.0, "end")
+			mdp = json.load(file)
 			mdpcryptés.grid(column=0, columnspan=3)
 			mdpcryptés.configure(height=100, width=600)
-			mdpcryptés.insert(1.0, (f"[ {element} ]\n________________________________________________________________________________________________\n\n"))
+			for element in mdp:
+				mdpcryptés.insert(1.0, (f"[ {element} ]\n________________________________________________________________________________________________\n\n"))
 
 def toggle_visibility():
     if voir_mdp.get():
@@ -151,20 +154,7 @@ def toggle_visibility():
     else:
         entrer_mdp.configure(show="*")
 
-def DidPasswordAlreadyExist():
-	fichier = "passwords.json"
-	list_mdp_cryptés = []
-	new_mdp = []
-	new_mdp.append(motdepasse_sign)
-	with open(fichier, "r") as file:
-		for line in file:
-			mdp = json.loads(line)
-			list_mdp_cryptés.append(mdp)
-			for password in new_mdp:
-				if new_mdp in list_mdp_cryptés:
-					print("deja la")
-				else:
-					print("yeaaah")
+
 
 
 #--------------------------------------------
